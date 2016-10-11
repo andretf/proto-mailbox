@@ -1,13 +1,12 @@
-<div class="message">
-  <header>
-    <h1>{{$ctrl.message.subject}}</h1>
-    <p>
-      <label>From:</label> {{$ctrl.message.sender}}
-    </p>
-    <p>
-      <label>Date:</label> {{$ctrl.message.time_sent | date: 'EEE dd MMM, HH:mm'}}</p>
-  </header>
-  <article>
-    {{$ctrl.message.message}}
-  </article>
-</div>
+<header>
+  <h1>{{$ctrl.message.subject}}</h1>
+  <dl>
+    <dt>From:</dt>
+    <dd>{{$ctrl.message.sender}}</dd>
+    <dt>Date/Time:</dt>
+    <dd>{{$ctrl.message.time_sent | date: 'EEE dd MMM, HH:mm'}}</dd>
+  </dl>
+</header>
+<article>
+  {{$ctrl.message.message}}
+</article>
