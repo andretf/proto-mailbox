@@ -1,0 +1,33 @@
+@import 'base/theme'
+
+.main
+  .row
+    display: -webkit-box
+    display: -webkit-flex
+    display: -ms-flexbox
+    display: flex
+    flex-wrap: wrap
+    > [class*='col-']
+      display: flex
+      flex-direction: column
+
+.sidebar
+  background-color: $grey
+
+.msg-summary-item
+  border-bottom: 1px solid #666666
+  &:last-child
+    border-bottom: 0
+
+.message-anchor
+  padding: 0
+  margin: 0
+  a
+    color: #fff
+    display: block
+    padding: 1em
+  a:hover
+    background-color: $grey-light
+  p
+    padding: 0
+    margin: .5em 0 0 1em

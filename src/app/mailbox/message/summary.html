@@ -1,0 +1,12 @@
+<div class="message-anchor">
+  <a href="#/{{$ctrl.message.uid}}">
+    <div class="pull-left text-nowrap">
+      {{$ctrl.message.sender}}
+    </div>
+    <div class="pull-right text-nowrap text-right">
+      {{$ctrl.message.time_sent | date: 'EEE dd MMM, HH:mm'}}
+    </div>
+    <div class="clearfix"></div>
+    <p>{{$ctrl.message.subject}}</p>
+  </a>
+</div>

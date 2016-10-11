@@ -1,0 +1,12 @@
+<div class="row">
+  <section class="col-sm-3 sidebar">
+    <ul class="list-unstyled">
+      <li class="msg-summary-item" ng-repeat="message in $ctrl.messages">
+        <message-summary message="message"></message-summary>
+      </li>
+    </ul>
+  </section>
+  <section class="col-sm-9">
+    <message message="$ctrl.message"></message>
+  </section>
+</div>
