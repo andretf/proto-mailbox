@@ -1,21 +1,3 @@
-(function(){
-  'use strict';
-
-  var module = angular.module('mailbox', ['templates', 'ui.router']);
-
-  module.config(function ($stateProvider, $urlRouterProvider) {
-    var messageState = {
-      name: 'message',
-      url: '/messages/:id',
-      template: '<message class="message-full" message="$ctrl.message"></message>'
-    };
-
-    $stateProvider.state(messageState);
-    $urlRouterProvider.otherwise('/messages');
-  });
-
-})();
-
 (function() {
   'use strict';
 
@@ -92,55 +74,4 @@
     }
   }
 
-})();
-(function () {
-  'use strict';
-
-  var module = angular.module('mailbox');
-
-  module.component('message', {
-    bindings: {
-      message: "="
-    },
-    templateUrl: "message-viewer/message-viewer.html",
-    controller: messageController
-  });
-
-  function messageController($stateParams, MailboxService) {
-    var vm = this;
-
-    MailboxService.get($stateParams.id, function (message) {
-      vm.message = message;
-    });
-  }
-
-})();
-(function(){
-  'use strict';
-
-  var module = angular.module('mailbox');
-
-  module.service('MailboxService', mailboxService);
-
-  function mailboxService($http){
-    function all(callback) {
-      $http.get('../data/mailbox.json').then(function (response) {
-        callback(response.data.messages);
-      });
-    }
-
-    function get(id, callback) {
-      $http.get('../data/mailbox.json').then(function (response) {
-        var message = response.data.messages.find(function (msg) {
-          return msg.uid == id;
-        });
-        callback(message);
-      });
-    }
-
-    return {
-      all: all,
-      get: get
-    };
-  }
 })();

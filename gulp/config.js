@@ -3,7 +3,7 @@ var settings = {
     baseDir: './dist/'
   },
   sass: {
-    src: './src/assets/stylesheets/*.sass',
+    src: './src/assets/stylesheets/**/*.sass',
     vendorSrc: './src/assets/stylesheets/vendor/*.*',
     dest: './dist/assets/stylesheets/',
     options: {

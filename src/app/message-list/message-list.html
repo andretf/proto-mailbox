@@ -1,0 +1,22 @@
+<ul class="list-unstyled">
+  <li class="message-summary-item {{message.read? 'read': 'unread'}} {{message.selected? 'selected': ''}}"
+      ng-hide="message.deleted"
+      ng-repeat="message in $ctrl.messages">
+
+    <a href="#/messages/{{message.uid}}" class="message-anchor">
+      <h1 class="message-summary-subject">
+        {{message.subject}}
+      </h1>
+      <footer class="clearfix message-summary-footer">
+        <span class="pull-left text-nowrap">
+          {{message.sender}}
+        </span>
+        <span class="pull-right text-nowrap text-right message-summary-datetime">
+          {{message.time_sent | date: 'EEE dd MMM, HH:mm'}}
+        </span>
+      </footer>
+    </a>
+    <button href="" class="btn btn-xs btn-danger btn-delete" title="Delete"
+            ng-click="$ctrl.deleteMessage(message)">X</button>
+  </li>
+</ul>

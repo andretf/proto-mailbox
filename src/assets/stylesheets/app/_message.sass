@@ -1,0 +1,46 @@
+@import '../base/theme'
+
+.sidebar
+  background-color: $grey-dark
+  max-height: 20rem
+  overflow-y: auto
+  padding: 0
+  @media (min-width: 768px)
+    max-height: none
+    overflow-y: visible
+
+.message-summary-item
+  border-bottom: 1px solid $grey
+  position: relative
+  &.unread
+    background-color: $blue
+    color: #eee
+    font-weight: bold
+  &.read
+    background-color: transparent
+    color: #cfcfcf
+    font-weight: normal
+  &.selected
+    background-color: $orange
+    color: #eee
+
+a.message-anchor
+  color: inherit
+  display: block
+  padding: .5em 1em
+  &:hover
+    background-color: $blue
+
+.btn-delete
+  border-radius: 0
+  border-bottom-left-radius: 2px
+  font-size: .7em
+  font-weight: 700
+  line-height: 1em
+  padding: .4em .55em
+  position: absolute
+  opacity: 0.5
+  right: 0
+  top: 0
+  &:hover
+    opacity: 1
