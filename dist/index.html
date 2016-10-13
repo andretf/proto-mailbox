@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Simple Mailbox</title>
+  <link rel="stylesheet" href="assets/stylesheets/vendor.css">
+  <link rel="stylesheet" href="assets/stylesheets/main.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+</head>
+<body ng-app="mailbox">
+
+<main role="main" class="container-fluid main">
+  <div class="row row-equal-height">
+    <section class="col-sm-3 sidebar">
+      <message-list></message-list>
+    </section>
+    <section class="col-sm-9">
+      <ui-view></ui-view>
+    </section>
+  </div>
+</main>
+
+<script src="assets/javascripts/vendor.js"></script>
+<script src="app/templates.js"></script>
+<script src="app/app.js"></script>
+</body>
+</html>
