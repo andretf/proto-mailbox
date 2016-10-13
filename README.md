@@ -6,11 +6,14 @@ Mailbox prototype written in Angular
     $ npm install
     $ gulp
 
-or start server on `dist` folder
+or start web-server on `dist` folder:
 
-    ../proto-mailbox/dist $ python -m SimpleHTTPServer 8000
+    ../proto-mailbox/dist $ python -m SimpleHTTPServer 3000
+
+This is need because we get data from JSON file: current browsers are quiting request on `file` protocol. 
 
 ## Test
 
-    $ gulp
+Run Karma and Protractor tests. Requires running app on local 3000 port.
+
     $ npm test

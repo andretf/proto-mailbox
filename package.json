@@ -4,7 +4,7 @@
   "description": "Simple Mailbox prototype",
   "scripts": {
     "postinstall": "./node_modules/protractor/bin/webdriver-manager update",
-    "pretest": "./node_modules/protractor/bin/webdriver-manager start",
+    "pretest": "./node_modules/protractor/bin/webdriver-manager start --standalone &",
     "test": "./node_modules/protractor/bin/protractor protractor.conf && ./node_modules/.bin/karma start",
     "start": "gulp"
   },
