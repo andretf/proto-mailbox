@@ -1,4 +1,4 @@
-(function(){
+(function () {
   'use strict';
 
   var module = angular.module('mailbox', ['templates', 'ui.router']);
@@ -7,10 +7,16 @@
     var messageState = {
       name: 'message',
       url: '/messages/:id',
-      template: '<message class="message-full" message="$ctrl.message"></message>'
+      template: '<message class="message-full" message="$ctrl.message" ng-show="$ctrl.message"></message>'
+    };
+    var messagesState = {
+      name: 'messages',
+      url: '/messages',
+      template: '<message class="message-full" message="$ctrl.message" ng-show="$ctrl.message"></message>'
     };
 
     $stateProvider.state(messageState);
+    $stateProvider.state(messagesState);
     $urlRouterProvider.otherwise('/messages');
   });
 
@@ -26,7 +32,7 @@
     controller: messageListController
   });
 
-  function messageListController($location, $stateParams, $rootScope, MailboxService) {
+  function messageListController($location, $rootScope, MailboxService) {
     var vm = this;
     vm.deleteMessage = deleteMessage;
     vm.messages = [];
@@ -63,7 +69,10 @@
       vm.messages = vm.messages.filter(function(msg){
         return msg.uid !== message.uid;
       });
-      updateState();
+
+      if (message.selected){
+        updateState();
+      }
     }
 
     function selectMessage(message) {
@@ -78,12 +87,12 @@
     }
 
     function updateState(){
-      if (angular.isArray(vm.messages)) {
+      if (angular.isArray(vm.messages) && vm.messages.length) {
         var firstId = vm.messages[0].uid;
-        $location.path('#/messages/' + firstId);
+        $location.path('messages/' + firstId);
       }
       else {
-        $location.path('#/messages');
+        $location.path('messages');
       }
     }
   }
