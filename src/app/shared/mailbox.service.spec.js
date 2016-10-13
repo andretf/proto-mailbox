@@ -22,7 +22,7 @@
       it('should return array of messages', inject(function ($httpBackend) {
         var messages;
         var callback = jasmine.createSpy('callback');
-        $httpBackend.when('GET', '../data/mailbox.json')
+        $httpBackend.when('GET', 'data/mailbox.json')
           .respond(one_message);
         MailboxService.all(callback);
         $httpBackend.flush();
@@ -39,7 +39,7 @@
         it('should return messages', inject(function ($httpBackend) {
           var message;
           var callback = jasmine.createSpy('callback');
-          $httpBackend.when('GET', '../data/mailbox.json')
+          $httpBackend.when('GET', 'data/mailbox.json')
             .respond(one_message);
           MailboxService.get(21, callback);
           $httpBackend.flush();

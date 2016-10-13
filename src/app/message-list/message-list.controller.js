@@ -8,7 +8,7 @@
     controller: messageListController
   });
 
-  function messageListController($location, $stateParams, $rootScope, MailboxService) {
+  function messageListController($location, $rootScope, MailboxService) {
     var vm = this;
     vm.deleteMessage = deleteMessage;
     vm.messages = [];
@@ -45,7 +45,10 @@
       vm.messages = vm.messages.filter(function(msg){
         return msg.uid !== message.uid;
       });
-      updateState();
+
+      if (message.selected){
+        updateState();
+      }
     }
 
     function selectMessage(message) {
@@ -60,12 +63,12 @@
     }
 
     function updateState(){
-      if (angular.isArray(vm.messages)) {
+      if (angular.isArray(vm.messages) && vm.messages.length) {
         var firstId = vm.messages[0].uid;
-        $location.path('#/messages/' + firstId);
+        $location.path('messages/' + firstId);
       }
       else {
-        $location.path('#/messages');
+        $location.path('messages');
       }
     }
   }
