@@ -17,16 +17,10 @@
       messages.map(function(msg){
         msg.read = false;
         msg.selected = false;
-        msg.deleted = false;
 
         return msg;
       });
       vm.messages = messages;
-
-      var message = vm.messages.find(function(msg){
-        return msg.uid == $stateParams.id;
-      });
-      selectMessage(message);
 
       $rootScope.$on('$stateChangeStart', function(event, toState, toParams){
           var message = vm.messages.find(function(msg){
@@ -55,6 +49,8 @@
     }
 
     function selectMessage(message) {
+      if (!message) return;
+
       vm.messages.forEach(function(msg){
         msg.selected = false;
       });

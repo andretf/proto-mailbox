@@ -22,7 +22,7 @@ var settings = {
     dest: './dist/assets/javascripts/'
   },
   appJs: {
-    src: './src/app/**/*.js',
+    src: ['./src/app/**/*.js', '!./src/app/**/*.spec.js'],
     dest: './dist/app/'
   },
   templates: {
